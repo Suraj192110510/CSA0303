@@ -1,0 +1,47 @@
+#include<stdio.h>
+int main()
+{
+	int search_element, n, arr[100], op = 0;
+	printf("Enter the number of elements to be in array : ");
+	scanf("%d" , &n);
+	int mt = n / 2;
+	printf("mid term %d\n" , mt);
+	printf("Enter the Search Element : ");
+	scanf("%d" , &search_element);
+	printf("Enter elements in ascending order.");
+	for(int i = 0; i < n; i++)
+	{
+		scanf("%d\n" , &arr[i]);
+	}
+	if(arr[mt] == search_element)
+	{
+		printf("Search elememt %d is at index %d" , search_element , mt);
+		op = 1;
+	}
+	if(arr[mt] > search_element)
+	{
+		for(int i = (mt - 1); i >= 0; i--)
+		{
+			if(arr[i] == search_element)
+			{
+				printf("Search element %d is at index %d" , search_element , i);
+				op = 0;
+			}
+		}
+	}
+	if(arr[mt] < search_element)
+	{
+		for(int i = (mt + 1); i < n; i++)
+		{
+			if(arr[i] == search_element)
+			{
+				printf("Search element %d is at index %d" , search_element , i);
+				op = 0;
+			}
+		}
+	}
+	if (op == 0)
+	{
+		printf("No element found");
+	}
+}
